@@ -17,7 +17,7 @@ describe Money::Bank::DatabaseBank::RateSource::EuCentralBank do
     date = Time.parse("2016-07-18 00:00:00 UTC")
     source = Money::Bank::DatabaseBank::RateSource::EuCentralBank::NAME
 
-    rates.should =~ [
+    expect(rates).to match_array [
       { sourced_at: date, rate_source: source, from_currency: 'EUR', to_currency: 'EUR', rate: 1.0 },
       { sourced_at: date, rate_source: source, from_currency: 'EUR', to_currency: 'USD', rate: 1.1053 },
       { sourced_at: date, rate_source: source, from_currency: 'USD', to_currency: 'EUR', rate: 1.0/1.1053 },
